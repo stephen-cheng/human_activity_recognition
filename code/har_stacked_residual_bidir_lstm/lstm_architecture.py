@@ -219,7 +219,8 @@ def LSTM_network(feature_mat, config, keep_prob_for_dropout):
         for stacked_hidden_index in range(config.n_stacked_layers - 1):
             # If the config permits it, we stack more lstm cells:
             print "\nCreating hidden #{}:".format(stacked_hidden_index+2)
-            hidden = residual_bidirectional_LSTM_layers(hidden, config.n_hidden, config.n_hidden, stacked_hidden_index+2, config, keep_prob_for_dropout)
+            hidden = residual_bidirectional_LSTM_layers(hidden, config.n_hidden, config.n_hidden, 
+                                                        stacked_hidden_index+2, config, keep_prob_for_dropout)
             print (len(hidden), str(hidden[0].get_shape()))
 
         print ""
